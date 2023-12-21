@@ -20,12 +20,14 @@ from .views import index, pagina_404
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from . import views 
 
 handler404 = pagina_404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
+    path('nosotros/', views.Nosotros, name='nosotros'),
     path('', include('apps.posts.urls')),
     path('', include('apps.contacto.urls')),
     path('', include('apps.usuario.urls')),

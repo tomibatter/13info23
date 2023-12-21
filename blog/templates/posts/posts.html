@@ -1,36 +1,67 @@
 {% extends 'base.html' %}
-{% load static %}
-{% load colaborador_tags %}
-
+{% load static %}  
 {% block contenido %}
-<center>
-  <div class="container-fluid" style="margin: 200px;">
-
-    {% if user.is_superuser or request.user|has_group:"Colaborador" %}
-    <div class="container-fluid" style="margin-top: 300px;">
-    <a id="boton_post" href="{% url 'apps.posts:crear_post' %}">Crear nuevo post</a>
+<br>
+<br>
+<br>
+<!-- plant -->
+    <div id="plant" class="plants">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="titlepage">
+                    <h2>Our Wonderful plants</h2>
+                    <span>looking at its layout. The point of using Lorem Ipsumletters, as opposed to usingl</span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="plants-box">
+                    <figure><img src="{% static 'images/plant1.jpg' %}" alt="img"/></figure>
+                    <h3> Floral Vibrant</h3>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page   when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using</p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="plants-box">
+                    <figure><img src="{% static 'images/plant2.jpg' %}" alt="img"/></figure>
+                    <h3> Floral Vibrant</h3>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page   when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using</p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="plants-box">
+                    <figure><img src="{% static 'images/plant3.jpg' %}" alt="img"/></figure>
+                    <h3> Floral Vibrant</h3>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page   when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using</p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="plants-box">
+                    <figure><img src="{% static 'images/plant1.jpg' %}" alt="img"/></figure>
+                    <h3> Floral Vibrant</h3>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page   when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using</p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="plants-box">
+                    <figure><img src="{% static 'images/plant2.jpg' %}" alt="img"/></figure>
+                    <h3> Floral Vibrant</h3>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page   when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using</p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="plants-box">
+                    <figure><img src="{% static 'images/plant3.jpg' %}" alt="img"/></figure>
+                    <h3> Floral Vibrant</h3>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page   when looking at its layout. The point of using Lorem Ipsumletters, as opposed to using</p>
+                </div>
+            </div>
+        </div>
+        </div>
     </div>
-  {% endif %}
-
-  <h2>Ordenar por:</h2>
-  <ul>
-      <a id="boton_post" href="{% url 'apps.posts:posts' %}?orden=reciente">Más reciente</a>
-      <a id="boton_post" href="{% url 'apps.posts:posts' %}?orden=antiguo">Más antiguo</a>
-      <a id="boton_post" href="{% url 'apps.posts:posts' %}?orden=alfabetico">Orden alfabetico</a>
-  </ul>
-
-    {% for i in posts %}
-        <br>
-        <h1>{{ i.titulo }}</h1>
-        <li>{{ i.subtitulo }}</li>
-        <li>{{ i.categoria }}</li>
-        <br>
-        <a id="boton_post" href="{% url 'apps.posts:post_individual' i.id %}">
-          ingresá a este Post
-        </a>
-        {% empty %}
-        <h1>No hay registros</h1>
-    {% endfor %}
-  </div>
-</center>
-{% endblock %}
+    <!-- end plant -->
+{% endblock contenido %}
