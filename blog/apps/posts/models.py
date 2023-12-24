@@ -12,12 +12,12 @@ class Categoria(models.Model):
         return self.nombre
 
 class Post(models.Model):
-    titulo = models.CharField(max_length=50, null=False)
-    subtitulo = models.CharField(max_length=100, null=True, blank=True)
+    título = models.CharField(max_length=50, null=False)
+    subtítulo = models.CharField(max_length=100, null=True, blank=True)
     fecha = models.DateTimeField(auto_now_add=True)
     texto = models.TextField(null=False)
     activo = models.BooleanField(default=True)
-    categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, default='Sin categoria')
+    categoría = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, default='Sin categoria')
     imagen = models.ImageField(null=True, blank=True, upload_to='media', default='static/post_default.png')
     publicado = models.DateTimeField(default=timezone.now)
     autor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
@@ -26,7 +26,7 @@ class Post(models.Model):
         ordering = ('-publicado',)
 
     def __str__(self):
-        return self.titulo
+        return self.título
 
     def delete(self, using = None, keep_parents = False):
         self.imagen.delete(self.imagen.name)

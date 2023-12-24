@@ -18,9 +18,9 @@ class PostListView(ListView):
         if orden == 'reciente':
             queryset = queryset.order_by('-fecha')
         elif orden == 'antiguo':
-            queryset = queryset.order_by('-fecha')
+            queryset = queryset.order_by('fecha')
         elif orden == 'alfabetico':
-            queryset = queryset.order_by('-titulo')
+            queryset = queryset.order_by('título')
         return queryset
 
     def get_context_data(self, **kwargs):

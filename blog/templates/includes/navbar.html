@@ -12,14 +12,14 @@
         <div class="header">
             <div class="container">
             <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col logo_section">
                     <div class="full">
                         <div class="center-desk">
                         <div class="logo"> <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="#"></a> </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                <div class="col-xl-10 col-lg-9 col-md-9 col-sm-9">
                     <div class="menu-area">
                         <div class="limit-box">
                         <nav class="main-menu">
@@ -29,7 +29,12 @@
                                 <li><a href="{% url 'apps.posts:posts' %}">Posts</a></li>
                                 <li><a href="#gallery">Gallery</a></li>
                                 <li><a href="{% url 'apps.contacto:contacto' %}">Contacto</a></li>
-                                <li class="last"><a href="#"><img src="{% static 'images/search_icon.png' %}" alt="icon"/></a></li>
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'apps.usuario:logout' %}">{% csrf_token %} 
+                                    {{ user.username }}: Log Out</button></a></li>
+                                {% else %}
+                                <li><a href="{% url 'apps.usuario:login' %}">Log In</a></li>
+                                {% endif %}
                             </ul>
                         </nav>
                         </div>

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load colaborador_tags %}
+{% block contenido %}
+<br>
+<br>
+<br>
+<div id="plant" class="plants">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 ">
+            <h3> &nbsp; Categoría: {{ posts.categoría }}</h3>
+            <br>
+            <div class="titlepage">
+                <h2>{{ posts.título }}</h2>
+                <h1>{{ posts.subtítulo }}</h1>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="row">
+        <div class="col-xl-12 col-lg-4 col-md-6 col-sm-12">
+            <div class="plants-box">
+                <p>{{ posts.texto }} </p>
+            </div>
+        </div>
+        {% if posts.imagen %}
+        <img src="{{ posts.imagen.url }}" alt="" width="480px">
+        {% else %}
+        <p></p>
+        {% endif %}
+    </div>
+    </div>
+</div>
+        {% if user.is_superuser or request.user|has_group:"Colaborador" %}
+        <div class="titlepage">
+            <h1><a id="boton_post" class="btn btn-lg btn-primary" href="{% url 'apps.posts:post_update' pk=posts.id %}" role="button">Modificar Post &nbsp;</a>
+            <a id="boton_post" class="btn btn-lg btn-primary" href="{% url 'apps.posts:post_delete' pk=posts.pk %}" role="button">Eliminar Post</a></h1>
+        </div>
+        {% endif %}
+
+
+<!-- Fue para otro template -->
+
+{% include 'comentario/crear_comentario.html' %}
+
+{% endblock %}

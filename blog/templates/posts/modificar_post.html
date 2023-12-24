@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="titlepage">
+    <h2>Modificar Post</h2>
+    <div class="plants-box">
+        <p>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" value="Guardar Cambios">
+        </p>
+    </div>
+</div>
+{% endblock %}

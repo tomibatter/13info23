@@ -25,14 +25,14 @@ class LoginUsuario(LoginView):
     template_name = 'registration/login.html'
 
     def get_success_url(self):
-        messages.success(self.request, 'Login exitoso')
+        messages.success(self.request, 'Log In Exitoso')
         return reverse_lazy('apps.usuario:login')
 
 class LogoutUsuario(LogoutView):
     template_name = 'registration/logout.html'
 
     def get_success_url(self):
-        messages.success(self.request, 'Logout exitoso')
+        messages.success(self.request, 'Log Out Exitoso')
         return reverse_lazy('apps.usuario:logout')
 
 class UsuarioListView(LoginRequiredMixin, ListView):

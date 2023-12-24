@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load colaborador_tags %}
+
+{% block contenido %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% if user.is_superuser or request.user|has_group:"Colaborador" %}
+<div class="titlepage">
+    <h2>Crear Post</h2>
+    <h3>¿Desea crear una nueva categoría antes? Dirígase a:<a id="boton_post" style="color: green;" href="{% url 'apps.posts:crear_categoria' %}">&nbsp;Crear Nueva Categoría</a></h3>
+    <div class="form-control">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" value="Guardar">
+        </form>
+    </div>
+</div>
+{% else %}
+    <div class="comentario-fluid" style="margin-top: 300px;">
+        <h1>Solo usuarios con permisos pueden acceder a esta página</h1>
+    </div>
+{% endif %}
+
+{% endblock %}

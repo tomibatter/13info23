@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="form-control">
+    <div class="titlepage">
+    <form method="POST" style="color: white;">
+        <h1 class="h1">Iniciar Sesión</h1>
+        <div class="messages">
+            {% for message in messages %}
+                <table{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</table>
+            {% endfor %}
+        </div>
+        {% csrf_token %}
+        <div class="container">
+            <table>{{ form }}</table>
+            <button type="submit" class="btn btn-suvvrss btn-lg px-3">Iniciar Sesión</button>
+            <br>
+            <br>
+            <h4 style="color: white;">¿Todavía no está registrado?<a style="color: white;" href="{% url 'apps.usuario:registrar' %}">Registrate</a></h4>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock %}
