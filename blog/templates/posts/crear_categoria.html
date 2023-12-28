@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="titlepage">
+        <h2>Agregar nueva categoría</h2>
+        <div class="form-control">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Agregar">
+        </form>
+        </div>
+    </div>
+{% endblock %}

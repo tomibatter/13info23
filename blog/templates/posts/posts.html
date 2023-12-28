@@ -15,7 +15,7 @@
                         <a id="boton_post" href="{% url 'apps.posts:posts' %}?orden=reciente">Más Reciente &nbsp;-</a>
                         <a id="boton_post" href="{% url 'apps.posts:posts' %}?orden=antiguo">&nbsp;Más Antiguo &nbsp;-</a>
                         <a id="boton_post" href="{% url 'apps.posts:posts' %}?orden=alfabetico">&nbsp;Orden Alfabético&nbsp;</a>
-                        {% if user.is_superuser or request.user %}
+                        {% if user.is_superuser %}
                         <a id="boton_post" href="{% url 'apps.posts:crear_post' %}" style="color: green;">-&nbsp;Crear Nuevo Post</a>
                         {% endif %}
                     </span>

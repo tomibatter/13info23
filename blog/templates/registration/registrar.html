@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<title>{% block title %} Regristro de usuario {% endblok title %}</title>
+<title>{% block title %} Regristro de usuario {% endblock title %}</title>
 
 {% block contenido %}
-<center>
-
-    <form method="POST" enctype="multipart/form-data" style="margin-top: 300px; margin-bottom: 100px;">
-        <h1 class="h1">Regristro de usuario</h1>
-        <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="titlepage">
+    <h2>Regristro de Usuario</h2>
+    <form method="POST" enctype="multipart/form-data" style="color: white;">
         <div class="messages">
             {% for message in messages %}
-                <table{% if message.tags %} class="{{ message.tags }}"{{% endif %}}>{{ message }}</table>
+                <table {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</table>
             {% endfor %}
         </div>
         <br>
@@ -22,6 +26,5 @@
         <br><br>
         <button type="submit" class="btn btn-success btn-lg px-3">Registrar</button>
     </form>
-
-</center>
-{% endblok %}
+</div>
+{% endblock %}

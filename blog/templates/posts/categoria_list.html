@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="titlepage">
+        <h2>Categorías</h2>
+        <span><h3>¿Desea crear una nueva categoría?<a id="boton_post" style="color: green;" href="{% url 'apps.posts:crear_categoria' %}">&nbsp;Crear Nueva Categoría</a></h3></span>
+    </div>
+        <div id="plant" class="plants">
+        <div class="container">
+        <div class="row">
+            {% for categoria in categorias %}
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="plants-box">
+                    <h3><a id="boton_post" href="#">{{ categoria.nombre }}</a></h3>
+                    {% if user.is_superuser %}
+                    <p><a style="color: red;" href="{% url 'apps.posts:categoria_delete' pk=categoria.pk %}">Eliminar</a> </p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+        </div>
+
+{% endblock %}
+

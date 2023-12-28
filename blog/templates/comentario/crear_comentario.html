@@ -36,8 +36,8 @@
         </div>
         {% else %}
         <div class="titlepage">
-            <h3 style="color: white;">Debes iniciar sesión o registrarte para comentar</h3>
-            <a class="btn btn-success btn-lg" href="#">Iniciar Sesión</a>
+            <h3 style="color: white;">Debes iniciar sesión o registrarte para comentar.</h3>
+            <a class="btn btn-success btn-lg" href="{% url 'apps.usuario:login' %}">Iniciar Sesión</a>
             <input type="hidden" name="next" value="{{ request.path }}">
         </div>
         {% endif %}

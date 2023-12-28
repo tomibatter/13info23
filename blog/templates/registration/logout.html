@@ -2,13 +2,11 @@
 {% load static %}
 
 {% block contenido %}
-<center>
     <div class="container" style="margin-top: 370px;">
         <div class="messages">
             {% for message in messages %}
-                <table{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</table>
+            {% if message.tags %} <table  class="{{ message.tags }}">{{ message }}</table> {% endif %}
             {% endfor %}
         </div>
     </div>
-</center>
 {% endblock %}
